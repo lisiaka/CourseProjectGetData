@@ -44,6 +44,10 @@ mcleandata<-melt(cleandata3, id=c("SubjectId","Activity"))
 cleandata4<-dcast(mcleandata,SubjectId+Activity~variable,mean)
 
 #writing dataset to a file
-write.table(cleandata4, "tidydataset.txt",row.name=FALSE)
+write.table(cleandata4, "tidydataset.txt",row.names=FALSE)
 
-
+#creaing codeBook
+codeBook<-cbind(seq_along(names(cleandata4)),names(cleandata4))
+codeBook<-as.data.frame(codeBook)
+codeBook[,1]<-as.integer(codeBook[,1])
+write.table(codeBook, "code_book.txt", row.names = FALSE, col.names = FALSE)
