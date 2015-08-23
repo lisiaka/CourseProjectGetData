@@ -49,5 +49,5 @@ write.table(cleandata4, "tidydataset.txt",row.names=FALSE)
 #creaing codeBook
 codeBook<-cbind(seq_along(names(cleandata4)),names(cleandata4))
 codeBook<-as.data.frame(codeBook)
-codeBook[,1]<-as.integer(codeBook[,1])
-write.table(codeBook, "code_book.txt", row.names = FALSE, col.names = FALSE)
+codeBook[,1]<-as.integer(as.character(codeBook[,1]))
+write.table(codeBook, "CodeBook.md", row.names = FALSE, col.names = FALSE)
